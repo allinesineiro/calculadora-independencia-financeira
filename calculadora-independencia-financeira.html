@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<title>Calculadora da Indepêndencia Financeira</title>
+  </head>
+  <body>
+	
+		<div class="jumbotron">
+				<div class="container">
+						<h1>Calculadora da Indepêndencia Financeira</h1>
+				</div>
+			</div>
+
+		<form class="needs-validation" novalidate>
+
+				<div class="form-group col-md-6">
+					<label for="receberMensalmente">Quanto você deseja receber mensalmente?</label>
+					<input type="text" class="form-control" id="receberMensalmente" aria-describedby="receberMensalmente" 
+						placeholder="" required>
+				</div>
+			
+				<div class="form-group col-md-6">
+					<label for="temGuardado">Quanto você já possui guardado?</label>
+					<input type="text" class="form-control" id="temGuardado" placeholder="" aria-describedby="inputGroupPrepend" required>		 
+				</div>
+
+				<div class="form-group col-md-6">
+					<label for="tempoIndependencia">Em quanto tempo deseja atingir a independência?</label>
+					<input type="text" class="form-control" id="tempoIndependencia" aria-describedby="tempoIndependencia" 
+							placeholder="" required>
+				</div>
+
+				<div class="custom-control custom-switch">
+					<input type="checkbox" class="custom-control-input" id="protegerInflacao">
+					<label class="custom-control-label" for="protegerInflacao">Proteger da inflação</label>
+				</div>
+
+				<div class="form-group col-md-6">
+					<label for="inflacaoEsperada">Qual a inflação esperada?</label>
+					<input type="text" class="form-control" id="inflacaoEsperada" aria-describedby="inflacaoEsperada" 
+						placeholder="" required>
+					</div>
+	
+
+				<div class="form-group col-md-6">
+						<label for="mostraResultado">Quanto você deve poupar por mês para atingir o objetivo:</label>
+						<input type="text" class="form-control" id="mostraResultado"  class="form-control mx-sm-3" disabled>
+				</div>
+
+				<div class="form-group col-md-6">
+					<label for="juntarTotal">Quanto você precisa juntar:</label>
+					<input type="text" class="form-control" id="juntarTotal"  class="form-control mx-sm-3" disabled>
+				</div>
+			</form>
+		<button type="submit" id="btn-calcular" class="btn btn-success" >Calcular</button>
+	
+		<script>
+			function soma(){
+				var receberMensalmente = document.getElementById("receberMensalmente").value;
+				var temGuardado = document.getElementById("temGuardado").value;
+				var resultado = parseInt(receberMensalmente) + 
+				 parseInt(temGuardado);
+				document.getElementById("mostraResultado").value = resultado;
+				
+				}
+			</script>
+
+		<script>
+				(function() {
+					'use strict';
+					window.addEventListener('load', function() {
+						// Fetch all the forms we want to apply custom Bootstrap validation styles to
+						var forms = document.getElementsByClassName('needs-validation');
+						// Loop over them and prevent submission
+						var validation = Array.prototype.filter.call(forms, function(form) {
+							form.addEventListener('submit', function(event) {
+								if (form.checkValidity() === false) {
+									event.preventDefault();
+									event.stopPropagation();
+								}
+								form.classList.add('was-validated');
+							}, false);
+						});
+					}, false);
+				})();
+		</script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
